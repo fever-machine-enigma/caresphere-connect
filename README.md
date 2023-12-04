@@ -4,7 +4,7 @@
 
 </div>
 
-#Introduction
+##Introduction
 Welcome to CareSphere – a healthcare technology leader. Our flagship product, CareSphere | Connect , is a game-changer for providers, featuring seamless appointment scheduling and prescription management.
 
 This cutting-edge portal ensures efficiency , letting healthcare professionals prioritize patient care. Experience the future with our telehealth services , breaking down barriers and connecting patients with quality healthcare, anytime, anywhere.
