@@ -16,19 +16,11 @@ At CareSphere, we're committed to reshaping healthcare tech, bridging innovation
 
 # Meet the team
 
-Md.Safinur Rahman
+Md.Safinur Rahman (2019-3-60-019)
 
-2019-3-60-019
+Korobi Sarker (2020-1-60-161)
 
-Korobi Sarker 
-
-2020-1-60-161
-
-Ummay Khadiza Rumpa
-
-2021-2-60-096
-
-
+Ummay Khadiza Rumpa(2021-2-60-096)
 
 # Update Notes
 
