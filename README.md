@@ -24,6 +24,8 @@ Ummay Khadiza Rumpa(2021-2-60-096)
 
 # Update Notes
 
+This is where the team will write updates about future developments.
+
 ## V1.0 - December 24, 2023
 
 - Implementation of basic features
