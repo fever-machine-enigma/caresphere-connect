@@ -12,7 +12,7 @@ This cutting-edge portal ensures efficiency , letting healthcare professionals p
 
 At CareSphere, we're committed to reshaping healthcare tech, bridging innovation with patient-centric care . Join us on this journey, where technology meets compassion for a healthier tomorrow with CareSphere | Connect leading the way.
 
-<div align="center">
+
 
 # Meet the team
 
@@ -25,7 +25,7 @@ Korobi Sarker
 Ummay Khadiza Rumpa
 2021-2-60-096
 
-</div>
+
 
 # Update Notes
 
