@@ -1,5 +1,5 @@
 import splashLoginImage from "../../public/login-register/loginSplash.jpg";
-import logoLight from "../../public/login-register/logoLight.jpg";
+import logoLight from "../../public/login-register/logoLight.png";
 import logoDark from "../../public/login-register/logoDark.png";
 
 import { useState } from "react";
