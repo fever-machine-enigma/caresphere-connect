@@ -2,8 +2,6 @@ import "./App.css";
 import Lenis from "@studio-freight/lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import _Login from "./components/_Login";
-import _Register from "./components/_Register";
 
 import logoLight from "../public/login-register/logoLight.png";
 import logoDark from "../public/login-register/logoDark.png";
