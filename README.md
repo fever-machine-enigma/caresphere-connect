@@ -12,15 +12,13 @@ This cutting-edge portal ensures efficiency , letting healthcare professionals p
 
 At CareSphere, we're committed to reshaping healthcare tech, bridging innovation with patient-centric care . Join us on this journey, where technology meets compassion for a healthier tomorrow with CareSphere | Connect leading the way.
 
-
-
 # Meet the team
 
 Md.Safinur Rahman (2019-3-60-019)
 
 Korobi Sarker (2020-1-60-161)
 
-Ummay Khadiza Rumpa(2021-2-60-096)
+Ummay Khadiza Rumpa (2021-2-60-096)
 
 # Update Notes
 
