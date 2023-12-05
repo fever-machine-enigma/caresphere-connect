@@ -162,7 +162,7 @@ function App() {
             , anytime, anywhere.
           </p>
           <p>
-            At CareSphere, we're committed to reshaping healthcare tech,
+            At CareSphere, we&apos;re committed to reshaping healthcare tech,
             bridging innovation with{" "}
             <span className="font-bold text-transparent bg-clip-text bg-accentDark">
               patient-centric care
