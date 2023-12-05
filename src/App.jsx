@@ -1,17 +1,50 @@
 import "./App.css";
+import Lenis from "@studio-freight/lenis";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import _Login from "./components/_Login";
+import _Register from "./components/_Register";
 
-import logoLight from "./assets/logoLight.png";
-import logoDark from "./assets/logoDark.png";
-import hero1 from "./assets/hero-1.jpg";
-import hero2 from "./assets/hero-2.jpg";
-import hero3 from "./assets/hero-3.jpg";
-import hero4 from "./assets/hero-4.jpg";
-import hero5 from "./assets/hero-5.jpg";
-import hero6 from "./assets/hero-6.jpg";
+import logoLight from "../public/login-register/logoLight.png";
+import logoDark from "../public/login-register/logoDark.png";
+import hero1 from "../public/hero/hero-1.webp";
+import hero2 from "../public/hero/hero-2.webp";
+import hero3 from "../public/hero/hero-3.webp";
+import hero4 from "../public/hero/hero-4.webp";
+import hero5 from "../public/hero/hero-5.webp";
+import hero6 from "../public/hero/hero-6.webp";
 
 import { useState, useEffect } from "react";
 
 function App() {
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
+
+  lenis.on("scroll", () => {});
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".about-text", {
+    scrollTrigger: {
+      trigger: ".about-text",
+      start: "-50% top",
+      end: "60% 60%",
+      scrub: 1,
+    },
+    x: 500,
+    ease: "none",
+    duration: 3,
+  });
+
   const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,7 +63,7 @@ function App() {
   const darkMode = prefersDarkMode ? logoLight : logoDark;
 
   return (
-    <body className="text-textLight dark:text-textDark bg-bgLight dark:bg-bgDark">
+    <body className="text-textLight dark:text-textDark bg-bgLight dark:bg-bgDark scroll-smooth">
       <div id="home" className="min-h-screen max-w-8">
         <header className="p-4 font-Inter flex flex-row justify-between">
           <img className="px-4 w-96" src={darkMode} alt="" />
@@ -85,7 +118,9 @@ function App() {
       </div>
       <div id="about" className="min-h-screen max-w-8 flex flex-row">
         <div className="font-InterTight font-bold w-1/6 text-[300px] flex flex-col items-center justify-end mb-64">
-          <h1 className="-rotate-90">About</h1>
+          <h1 className="about-text -rotate-90 relative -left-[500px]">
+            About
+          </h1>
         </div>
         <div className="w-full flex flex-col justify-center font-InterTight text-[2rem] gap-32 px-4">
           <p>
@@ -151,7 +186,7 @@ function App() {
         className="min-h-screen max-w-5/6 flex flex-col justify-center items-center"
       >
         <div>
-          <h1 className="font-InterTight font-bold text-[150px] mb-12">
+          <h1 className="text-textDark  font-InterTight font-bold text-[150px] mb-12 ">
             Pricing
           </h1>
         </div>
@@ -234,6 +269,123 @@ function App() {
           </div>
         </div>
       </div>
+
+      <div className="min-h-screen p-20 flex flex-col justify-center items-start">
+        <div className="">
+          <h1 className="font-InterTight font-bold text-[90px] mb-8">
+            Want your own CareSphere | Connect?
+          </h1>
+        </div>
+        <div>
+          <div className=" font-InterTight flex flex-row text-3xl">
+            <span className="text-center w-20 mr-2 flex justify-content items-center">
+              I am a
+            </span>
+            <input
+              className="font-bold border-b-2 bg-bgDark w-72 h-16 text-center"
+              type="text"
+              placeholder="your position"
+            />
+            <span className="mx-2 flex justify-content items-center">from</span>
+            <input
+              className="font-bold border-b-2 bg-bgDark w-96 h-16 text-center"
+              type="text"
+              placeholder="your organization name"
+            />
+            <span className="mx-2 flex justify-content items-center">, a</span>
+
+            <label htmlFor="Hospital" className="">
+              <input
+                type="radio"
+                name="org"
+                id="Hospital"
+                className="peer sr-only"
+              />
+              <p className="flex justify-center items-center font-bold mx-4 transition ease-in-out delay-50 bg-primaryLight dark:bg-green-400 peer-checked:scale-x-110 peer-checked:scale-y-110 peer-checked:bg-primaryDark text-textLight peer-checked:text-textDark text-3xl w-[200px] h-16 rounded-full">
+                Hospital
+              </p>
+            </label>
+            <label htmlFor="Clinic" className="">
+              <input
+                type="radio"
+                name="org"
+                id="Clinic"
+                className="peer sr-only"
+              />
+              <p className="flex justify-center items-center font-bold mx-4 transition ease-in-out delay-50 bg-primaryLight dark:bg-green-400 peer-checked:scale-x-110 peer-checked:scale-y-110 peer-checked:bg-primaryDark text-textLight peer-checked:text-textDark text-3xl w-[200px] h-16 rounded-full">
+                Clinic
+              </p>
+            </label>
+            <label htmlFor="Public Health Agency" className="">
+              <input
+                type="radio"
+                name="org"
+                id="Public Health Agency"
+                className="peer sr-only"
+              />
+              <p className="flex justify-center items-center font-bold mx-4 transition ease-in-out delay-50 bg-primaryLight dark:bg-green-400 peer-checked:scale-x-110 peer-checked:scale-y-110 peer-checked:bg-primaryDark text-textLight peer-checked:text-textDark text-3xl w-[320px] h-16 rounded-full">
+                Public Health Agency
+              </p>
+            </label>
+          </div>
+          <div className="mt-8 flex flex-row font-InterTight text-3xl">
+            <span className=" flex justify-content items-center mr-4">
+              and I want a quotation on your
+            </span>
+            <label htmlFor="Alpha" className="">
+              <input
+                type="radio"
+                name="package"
+                id="Alpha"
+                className="peer sr-only"
+              />
+              <p className="flex justify-center items-center font-bold mx-4 transition ease-in-out delay-50 bg-primaryLight dark:bg-green-400 peer-checked:scale-x-110 peer-checked:scale-y-110 peer-checked:bg-primaryDark text-textLight peer-checked:text-textDark text-3xl w-[300px] h-16 rounded-full">
+                CarePlus Alpha
+              </p>
+            </label>
+            <label htmlFor="Beta" className="">
+              <input
+                type="radio"
+                name="package"
+                id="Beta"
+                className="peer sr-only"
+              />
+              <p className="flex justify-center items-center font-bold mx-4 transition ease-in-out delay-50 bg-primaryLight dark:bg-green-400 peer-checked:scale-x-110 peer-checked:scale-y-110 peer-checked:bg-primaryDark text-textLight peer-checked:text-textDark text-3xl w-[250px] h-16 rounded-full">
+                CarePlus Beta
+              </p>
+            </label>
+            <label htmlFor="Pro" className="">
+              <input
+                type="radio"
+                name="package"
+                id="Pro"
+                className="peer sr-only"
+              />
+              <p className="flex justify-center items-center font-bold mx-4 transition ease-in-out delay-50 bg-primaryLight dark:bg-green-400 peer-checked:scale-x-110 peer-checked:scale-y-110 peer-checked:bg-primaryDark text-textLight peer-checked:text-textDark text-3xl w-[200px] h-16 rounded-full">
+                CarePro
+              </p>
+            </label>
+          </div>
+          <div className="mt-8 flex flex-row gap-2 font-InterTight text-3xl">
+            <span className="flex justify-content items-center">
+              Please email me at
+            </span>
+            <input
+              className="font-bold border-b-2 bg-bgDark w-[500px] h-16 text-center"
+              type="text"
+              placeholder="your email"
+            />
+            <span className="flex justify-content items-center">.</span>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div className="px-4 pb-1 flex flex-row justify-between items-center">
+          <p className="font-InterTight text-xl">©️ 2023</p>
+          <p className="font-InterTight text-xl">Coded with ❤️ for CSE347</p>
+          <p className="font-InterTight text-xl">BACK TO TOP</p>
+        </div>
+      </footer>
     </body>
   );
 }

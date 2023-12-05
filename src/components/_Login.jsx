@@ -1,7 +1,6 @@
-import splashLoginImage from "../assets/loginSplash.jpg";
-import logoLight from "../assets/logoLight.png";
-import logoDark from "../assets/logoDark.png";
-import _Register from "./_Register";
+import splashLoginImage from "../../public/login-register/loginSplash.jpg";
+import logoLight from "../../public/login-register/registerSplash.jpg";
+import logoDark from "../../public/login-register/logoDark.png";
 
 import { useState } from "react";
 const _Login = () => {
