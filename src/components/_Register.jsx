@@ -1,6 +1,4 @@
-import splashImage from "../assets/registerSplash.jpg";
-import logoDark from "../assets/logoDark.png";
-import logoLight from "../assets/logoLight.png";
+import splashImage from "../../public/login-register/registerSplash.jpg";
 
 const _Register = () => {
   return (
