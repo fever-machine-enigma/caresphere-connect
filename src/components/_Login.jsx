@@ -3,7 +3,9 @@ import logoLight from "../../public/login-register/logoLight.png";
 import logoDark from "../../public/login-register/logoDark.png";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const _Login = () => {
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState("false");
 
@@ -21,7 +23,12 @@ const _Login = () => {
       {/* login container */}
       <div className="bg-bgDark dark:bg-bgLight flex rounded-3xl shadow-lg max-w-6xl p-4">
         <div className="w-1/2 px-8 mt-4 flex flex-col items-center">
-          <img src={darkMode} className="" alt="" />
+          <img
+            onClick={() => navigate("/home")}
+            src={darkMode}
+            className=""
+            alt=""
+          />
           <form className="font-Inter flex flex-col justify-center items-center w-3/4 gap-4 mt-28">
             <h2 className="text-2xl font-InterTight font-bold text-textDark dark:text-textLight">
               Login to your account to get started!
@@ -79,6 +86,7 @@ const _Login = () => {
           <button
             className="font-Inter mt-8 py-2 px-5 text-xs bg-bgLight dark:bg-bgDark rounded-xl text-textLight dark:text-textDark
             transition ease-in-out delay-50 hover:scale-x-110 hover:scale-y-110"
+            onClick={() => navigate("/register")}
           >
             Register
           </button>
