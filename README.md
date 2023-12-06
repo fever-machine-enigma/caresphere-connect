@@ -28,7 +28,7 @@ This is where the team will write updates about future developments.
 
 - Implementation of basic features
   - Appointment Scheduling
-  - Doctor/Nurse Information
+  - Doctor Information
   - Prescription Management
   - Medication
   - Medical Profile
