@@ -3,31 +3,149 @@ import { BiChat, BiBell } from "react-icons/bi";
 import { Fragment } from "react";
 import classNames from "classnames";
 import profileimg from "../../../public/profileimg.jpg";
+import hospitalImage from "../../../public/asgar-ali-hospital.webp";
+
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 export default function _Header() {
+  const [formattedTime, setFormattedTime] = useState("");
+  const [formattedDate, setFormattedDate] = useState("");
+
+  setInterval(updateClock, 1000);
   const navigate = useNavigate();
 
+  function updateClock() {
+    let currentDate = new Date();
+
+    let hours = currentDate.getHours();
+    let minutes = currentDate.getMinutes();
+
+    let year = currentDate.getFullYear();
+    let month = currentDate.toLocaleString("en-US", { month: "long" });
+    let day = currentDate.getDate();
+
+    const newFormattedDate = `${day < 10 ? "0" + day : day} ${month}, ${year}`;
+
+    let formattedHours = hours < 10 ? "0" + hours : hours;
+    let formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+    let ampm = hours >= 12 ? "PM" : "AM";
+
+    const newFormattedTime = `${
+      formattedHours % 12 ? formattedHours % 12 : formattedHours
+    }:${formattedMinutes} ${ampm}`;
+
+    setFormattedTime(newFormattedTime);
+    setFormattedDate(newFormattedDate);
+  }
+
+  useEffect(() => {
+    const timerInterval = setInterval(updateClock, 1000);
+
+    return () => clearInterval(timerInterval);
+  });
+  // const [location, setLocation] = useState(23.04, 90.04);
+  const [lat, setLat] = useState(23.04);
+  const [lon, setLon] = useState(90.04);
+  const [weatherData, setWeatherData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          setLat(latitude);
+          setLon(longitude);
+          console.log(latitude, longitude);
+        },
+        (error) => {
+          setError("Error getting location: " + error.message);
+          setLoading(false);
+        }
+      );
+    } else {
+      setError("Geolocation is not supported by your browser");
+      setLoading(false);
+    }
+  }, []);
+
+  // window.addEventListener("load", () => {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition((position) => {
+
+  // setLatitude(position.coords.latitude);
+  // setLongitude(position.coords.longitude);
+  // console.log(latitude, longitude);
+  //     });
+  //   }
+  // });
+  useEffect(() => {
+    const apiKey = "93149e46c20b7f29803c7a1c2ad9e638";
+
+    const baseURL =
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&` +
+      `lon=${lon}&appid=${apiKey}`;
+
+    axios
+      .get(baseURL)
+      .then((response) => {
+        setWeatherData(response.data);
+      })
+      .catch((error) => {
+        setError("Error fetching weather data: " + error.message);
+        setLoading(false);
+      });
+  }, [lat, lon]);
+
+  const kelvin = 273;
   return (
     <div className="bg-bgDark h-16 px-2 flex justify-between items-center rounded-3xl ">
+      <div className=" flex items-center gap-4">
+        <img
+          className="rounded-2xl h-12"
+          src={hospitalImage}
+          alt="Hospital Log"
+        />
+        <div>
+          <h1 className=" font-InterTight font-bold text-3xl text-textDark">
+            Asgar Ali Hospital Ltd.
+          </h1>
+        </div>
+      </div>
+
       <div>
         <h1 className="px-4 font-InterTight font-bold text-3xl text-textDark">
-          Asgar Ali Hospital Ltd.
+          {formattedTime}
         </h1>
       </div>
       <div>
         <h1 className="px-4 font-InterTight font-bold text-3xl text-textDark">
-          07:24 PM
+          {formattedDate}
         </h1>
       </div>
       <div>
-        <h1 className="px-4 font-InterTight font-bold text-3xl text-textDark">
-          07 December, 2023
-        </h1>
-      </div>
-      <div>
-        <h1 className="px-4 font-InterTight font-bold text-3xl text-textDark">
-          Clear 97°
-        </h1>
+        <div className="px-4 font-InterTight font-bold text-3xl text-textDark">
+          <div>
+            {/* {weatherData
+              ? `${weatherData.weather[0].description}
+            ${Math.floor(weatherData.main.temp - kelvin) + "°C"}`
+              : "Loading..."} */}
+            {loading ? (
+              <p>Loading..</p>
+            ) : error ? (
+              <p>{error}</p>
+            ) : location && weatherData ? (
+              `${weatherData.weather[0].description} ${
+                Math.floor(weatherData.main.temp - kelvin) + "°C"
+              }`
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
       </div>
       <div className="flex items-center gap-2 mr-2">
         <Popover className="relative">
@@ -110,10 +228,10 @@ export default function _Header() {
         </Popover>
         <Menu as="div" className="relative">
           <div>
-            <Menu.Button className="ml-2 inline-flex rounded-3xl focus:outline-none ">
+            <Menu.Button className="mt-1 inline-flex rounded-3xl focus:outline-none ">
               <span className="sr-only">Open user menu</span>
               <div
-                className="h-10 w-10 rounded-3xl bg-cover bg-no-repeat ring-2 ring-accentLight bg-center"
+                className="h-10 w-10 rounded-xl bg-cover bg-no-repeat ring-2 ring-accentLight bg-center"
                 style={{
                   backgroundImage: `url(${profileimg})`,
                 }}

@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Layout from "./components/shared/Layout";
 import _Dashboard from "./components/_Dashboard";
 import _Appointment from "./components/_Appointment";
@@ -13,6 +18,7 @@ import _Feedback from "./components/_Feedback";
 import _Settings from "./components/_Settings";
 import _Help from "./components/_Help";
 import _Profile from "./components/_Profile";
+import _Missing from "./components/_Missing";
 
 function App() {
   return (
@@ -32,6 +38,8 @@ function App() {
         <Route path="login" element={<_Login />} />
         <Route path="register" element={<_Register />} />
         <Route path="home" element={<Landing />} />
+        <Route path="404" element={<_Missing />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </Router>
   );
