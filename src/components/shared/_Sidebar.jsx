@@ -4,6 +4,9 @@ import { DASHBOARD_SIDEBAR_BOTTOM_LINKS } from "../../lib/consts/navigation";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { BiLogOut } from "react-icons/bi";
+import doc1 from "../../../public/doctor-img/doc1.jpg";
+import doc2 from "../../../public/doctor-img/doc2.jpg";
+import doc3 from "../../../public/doctor-img/doc3.jpg";
 
 const linkClasses =
   "hover:bg-[#103147] hover:rounded-3xl  flex items-center mt-2 gap-4 font-Inter px-7 py-2 text-base ";
@@ -15,12 +18,53 @@ const _Sidebar = () => {
       <div className="flex">
         <img src={logo} alt="logo" />
       </div>
-      <div className="flex-1 mt-8 ">
+      <div className="flex-1 mt-2 ">
         {DASHBOARD_SIDEBAR_LINKS.map((item) => (
           <SidebarkLink key={item.key} item={item} />
         ))}
       </div>
-      <hr className=" border-textDark/30" />
+      <div className="flex flex-col gap-2 p-2 w-11/12 ml-4 mb-4 flex-1 bg-bgLight rounded-xl overflow-auto">
+        <div className="p-4 rounded-xl bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
+          <div className="flex gap-4">
+            <img
+              className="h-16 w-16 object-cover rounded-xl ring-2 ring-green-500"
+              src={doc1}
+              alt=""
+            />
+            <div className="flex flex-col gap-2 justify-center">
+              <h1 className="fontInter font-bold">M.Susan</h1>
+              <p className="fontInter ">So I was won...</p>
+            </div>
+          </div>
+        </div>
+        <div className="p-4 rounded-xl bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
+          <div className="flex gap-4">
+            <img
+              className="h-16 w-16 object-cover rounded-xl ring-2 ring-red-500"
+              src={doc2}
+              alt=""
+            />
+            <div className="flex flex-col gap-2 justify-center">
+              <h1 className="fontInter font-bold">S.Miller</h1>
+              <p className="fontInter ">Hello, I'm...</p>
+            </div>
+          </div>
+        </div>
+        <div className="p-4 rounded-xl bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
+          <div className="flex gap-4">
+            <img
+              className="h-16 w-16 object-cover rounded-xl ring-2 ring-yellow-500"
+              src={doc3}
+              alt=""
+            />
+            <div className="flex flex-col gap-2 justify-center">
+              <h1 className="fontInter font-bold">P.Badrul</h1>
+              <p className="fontInter ">When are yo...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr className="border-textDark/30" />
       <div>
         {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((item) => (
           <SidebarkBottomLink key={item.key} item={item} />
