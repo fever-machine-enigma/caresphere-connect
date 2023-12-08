@@ -3,7 +3,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import asgarLogo from "../../public/asgar-ali-hospital.webp";
 import presc1 from "../../public/meds/losectil-20.png";
 import doc1 from "../../public/doctor-img/doc1.jpg";
-import hepB from "../../public/vaccine-img/hepB.jpg";
+import hepB from "../../public/vaccine-img/hepb.jpg";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 
 const _Dashboard = () => {
