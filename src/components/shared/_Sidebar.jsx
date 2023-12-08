@@ -9,7 +9,7 @@ import doc2 from "../../../public/doctor-img/doc2.jpg";
 import doc3 from "../../../public/doctor-img/doc3.jpg";
 
 const linkClasses =
-  "hover:bg-[#103147] hover:rounded-3xl  flex items-center mt-2 gap-4 font-Inter px-7 py-2 text-base ";
+  "hover:bg-[#103147] hover:rounded-3xl flex items-center mt-2 gap-4 font-Inter px-7 py-2 text-base ";
 
 const _Sidebar = () => {
   const navigate = useNavigate();

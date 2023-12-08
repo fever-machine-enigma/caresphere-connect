@@ -18,7 +18,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "appointment",
-    label: "Appointments",
+    label: "Doctors",
     path: "/appointment",
     icon: <BiUserPin />,
   },
