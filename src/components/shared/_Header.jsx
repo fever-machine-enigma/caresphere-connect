@@ -90,7 +90,7 @@ export default function _Header() {
         setWeatherData(response.data);
       })
       .catch((error) => {
-        setError("Error fetching weather data: " + error.message);
+        setError("Error: " + error.message);
         setLoading(false);
       });
   }, [lat, lon]);
