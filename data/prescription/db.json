@@ -1,0 +1,82 @@
+[
+  {
+    "id": 0,
+    "doctor": "Marie Susan",
+    "prescribedDate": "2023-12-01",
+    "patientName": "Shafin Rahman",
+    "shortDesc": "Gastric Ulcer",
+    "prescription": {
+      "medName": "Losectil 20",
+      "longDesc": "For your Duodenal and gastric ulcer.",
+      "medMorn": true,
+      "medNoon": true,
+      "medNight": true,
+      "medMornBefore": true,
+      "medMornAfter": false,
+      "medNoonBefore": false,
+      "medNoonAfter": true,
+      "medNightBefore": false,
+      "medNightAfter": true
+    }
+  },
+  {
+    "id": 1,
+    "doctor": "Stephanie Miller",
+    "prescribedDate": "2023-12-12",
+    "patientName": "Shafin Rahman",
+    "shortDesc": "Gastric Ulcer",
+    "prescription": {
+      "medName": "Lopirel Plus",
+      "longDesc": "Prevents any potential heart attack and high BP",
+      "medMorn": true,
+      "medNoon": false,
+      "medNight": true,
+      "medMornBefore": true,
+      "medMornAfter": false,
+      "medNoonBefore": false,
+      "medNoonAfter": false,
+      "medNightBefore": false,
+      "medNightAfter": true
+    }
+  },
+  {
+    "id": 2,
+    "doctor": "Pratham Badrul",
+    "prescribedDate": "2023-12-21",
+    "patientName": "Shafin",
+    "shortDesc": "Brain Ulcer",
+    "prescription": {
+      "medName": "Renola 500",
+      "longDesc": "Prevents any potential heart attack and high BP",
+      "medMorn": false,
+      "medNoon": false,
+      "medNight": true,
+      "medMornBefore": true,
+      "medMornAfter": false,
+      "medNoonBefore": false,
+      "medNoonAfter": false,
+      "medNightBefore": false,
+      "medNightAfter": true
+    }
+  },
+  {
+    "id": 3,
+    "doctor": "Stephanie Miller",
+    "prescribedDate": "2023-12-12",
+    "patientName": "Shafin Rahman",
+    "shortDesc": "Brain Ulcer",
+    "prescription": {
+      "medName": "Carlina-M",
+      "longDesc": "Prevents any potential heart attack and high BP",
+      "medMorn": false,
+      "medNoon": true,
+      "medNight": true,
+      "medMornBefore": true,
+      "medMornAfter": false,
+      "medNoonBefore": false,
+      "medNoonAfter": false,
+      "medNightBefore": false,
+      "medNightAfter": true
+    }
+  }
+]

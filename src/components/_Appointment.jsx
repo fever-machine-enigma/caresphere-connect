@@ -1,8 +1,25 @@
-import { BiSearch, BiListUl } from "react-icons/bi";
+import { BiSearch, BiListUl, BiCalendar } from "react-icons/bi";
 import userData from "../../data/user/db.json";
 import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const _Appointment = () => {
+  let [isOpen, setIsOpen] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
   const doctorList = userData.filter((user) => user.userType === "Doctor");
 
   const mappedDoctorList = doctorList.map((doctor) => ({
@@ -73,7 +90,7 @@ const _Appointment = () => {
             {filteredDoctors.map((user) => (
               <div
                 className={`hover:bg-accentDark transition ease-in-out duration-200 cursor-pointer flex  justify-center flex-row h-80 border-textLight rounded-2xl border-4 w-1/3 ${
-                  selectedCard == user ? "bg-green-700" : ""
+                  mappedDoctorList == user ? "bg-green-400" : ""
                 }`}
                 key={user.id}
                 onClick={() => {
@@ -187,17 +204,81 @@ const _Appointment = () => {
                     <span className="h-1/2 my-1  font-InterTight font-bold text-2xl">
                       Room
                     </span>
-                    <div className="font-Inter bg-bgDark font-bold h-1/2 p-4 rounded-full text-white bg-black-600 w-full flex justify-end items-center text-4xl ">
+                    <div className="font-Inter bg-bgDark font-bold h-1/2 p-4 rounded-full text-white bg-black-600 w-full flex justify-end items-center text-4xl">
                       <span>{selectedCard.room}</span>
                     </div>
                   </div>
                   <div className="h-1/3">
-                    <span className="h-1/2 mt-40  font-InterTight font-bold text-2xl">
+                    <span className="h-1/2 mt-40 font-InterTight font-bold text-2xl">
                       Appointment
                     </span>
-                    <button className="transition ease-in-out duration-300 font-Inter bg-yellow-500 hover:bg-primaryDark hover:text-textDark font-bold h-[70px] p-4 rounded-full text-black bg-black-600 w-full flex justify-center items-center text-3xl ">
+                    <button
+                      onClick={openModal}
+                      type="button"
+                      className="transition ease-in-out duration-300 font-Inter bg-yellow-500 hover:bg-primaryDark hover:text-textDark font-bold h-[70px] p-4 rounded-full text-black bg-black-600 w-full flex justify-center items-center text-3xl "
+                    >
                       Book an Appointment
                     </button>
+                    <Dialog open={isOpen} onClose={() => closeModal()}>
+                      <div className="fixed inset-0 flex w-screen items-center justify-center p-4 bg-gray-700/80">
+                        <Dialog.Panel className="p-8 w-full max-w-3xl h-full max-h-2xl rounded-xl bg-white">
+                          <Dialog.Title>
+                            <h1 className="text-4xl font-InterTight font-bold">
+                              Book an Appointment
+                            </h1>
+                          </Dialog.Title>
+                          <div className="flex flex-col">
+                            <div className="h-1/3 flex p-4">
+                              <img
+                                className="object-cover rounded-full w-[300px] h-[300px]"
+                                src={selectedCard.profilePhoto}
+                                alt=""
+                              />
+
+                              <div className="w-1/2 flex flex-col justify-center items-center gap-4 font-Inter">
+                                <span className="text-3xl font-bold">
+                                  {selectedCard.firstName}{" "}
+                                  {selectedCard.lastName}
+                                </span>
+                                <span className="text-xl">
+                                  {selectedCard.userPosition}
+                                </span>
+                              </div>
+                            </div>
+                            <form className="flex flex-col justify-center gap-2 p-8">
+                              <p className="font-Inter text-2xl font-bold">
+                                Pick a Date & Time:{" "}
+                              </p>
+                              <DatePicker
+                                className="flex items-center justify-center text-xl font-bold bg-primaryDark text-white font-Inter focus:outline-none px-5 h-12 w-[52%]  rounded-full cursor-pointer"
+                                selected={selectedDate}
+                                onChange={handleDateChange}
+                                showTimeSelect
+                                timeFormat="hh:mm aa"
+                                timeIntervals={30}
+                                dateFormat="MMMM d, yyyy H:mm aa"
+                                timeCaption="Time"
+                                placeholderText="Click here"
+                                icon="bi biCalendar"
+                              />
+                              <h1 className="font-Inter text-2xl font-bold">
+                                What is your problem?
+                              </h1>
+                              <textarea
+                                className="focus:outline-none p-2 font-Inter text-xl rounded-2xl ring-2 ring-bgDark"
+                                name="message"
+                                id="messageContainer"
+                                cols="30"
+                                rows="5"
+                              ></textarea>
+                              <button className="transition ease-in-out duration-300 font-Inter bg-yellow-500 hover:bg-primaryDark hover:text-textDark font-bold h-[70px] p-4 rounded-full text-black bg-black-600 w-full flex justify-center items-center text-3xl ">
+                                Confirm Appointment
+                              </button>
+                            </form>
+                          </div>
+                        </Dialog.Panel>
+                      </div>
+                    </Dialog>
                   </div>
                 </div>
               </div>
@@ -210,3 +291,60 @@ const _Appointment = () => {
 };
 
 export default _Appointment;
+
+{
+  /* <Transition appear show={isOpen} as={Fragment}>
+  <Dialog as="div" className="relative z-10" onClose={closeModal}>
+    <Transition.Child
+      as={Fragment}
+      enter="ease-out duration-300"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      leave="ease-in duration-200"
+      leaveFrom="opacity-100"
+      leaveTo="opacity-0"
+    >
+      <div className="fixed inset-0 bg-black/25" />
+    </Transition.Child>
+
+    <div className="fixed inset-0 overflow-y-auto">
+      <div className="flex min-h-full items-center justify-center p-4 text-center">
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-300"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+            <Dialog.Title
+              as="h3"
+              className="text-lg font-medium leading-6 text-gray-900"
+            >
+              Book an appointment
+            </Dialog.Title>
+            <div className="mt-2">
+              <p className="text-sm text-gray-500">
+                Your payment has been successfully submitted. We’ve sent you an
+                email with all of the details of your order.
+              </p>
+            </div>
+
+            <div className="mt-4">
+              <button
+                type="button"
+                className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                onClick={closeModal}
+              >
+                Got it, thanks!
+              </button>
+            </div>
+          </Dialog.Panel>
+        </Transition.Child>
+      </div>
+    </div>
+  </Dialog>
+</Transition>; */
+}

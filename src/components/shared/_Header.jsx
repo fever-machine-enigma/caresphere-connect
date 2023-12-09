@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import classNames from "classnames";
 import profileimg from "../../../public/profileimg.jpg";
 import hospitalImage from "../../../public/asgar-ali-hospital.webp";
+import userData from "../../../data/user/db.json";
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -12,6 +13,11 @@ import axios from "axios";
 export default function _Header() {
   const [formattedTime, setFormattedTime] = useState("");
   const [formattedDate, setFormattedDate] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("active");
+
+  const handleStatusChange = (status) => {
+    setSelectedStatus(status);
+  };
 
   setInterval(updateClock, 1000);
   const navigate = useNavigate();
@@ -45,7 +51,7 @@ export default function _Header() {
 
     return () => clearInterval(timerInterval);
   });
-  // const [location, setLocation] = useState(23.04, 90.04);
+
   const [lat, setLat] = useState(23.04);
   const [lon, setLon] = useState(90.04);
   const [weatherData, setWeatherData] = useState(null);
@@ -59,7 +65,6 @@ export default function _Header() {
           const longitude = position.coords.longitude;
           setLat(latitude);
           setLon(longitude);
-          console.log(latitude, longitude);
         },
         (error) => {
           setError("Error getting location: " + error.message);
@@ -72,16 +77,6 @@ export default function _Header() {
     }
   }, []);
 
-  // window.addEventListener("load", () => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-
-  // setLatitude(position.coords.latitude);
-  // setLongitude(position.coords.longitude);
-  // console.log(latitude, longitude);
-  //     });
-  //   }
-  // });
   useEffect(() => {
     const apiKey = "93149e46c20b7f29803c7a1c2ad9e638";
 
@@ -111,7 +106,7 @@ export default function _Header() {
         />
         <div>
           <h1 className=" font-InterTight font-bold text-3xl text-textDark">
-            Asgar Ali Hospital Ltd.
+            Houston General Hospital
           </h1>
         </div>
       </div>
@@ -231,7 +226,13 @@ export default function _Header() {
             <Menu.Button className="mt-1 inline-flex rounded-3xl focus:outline-none ">
               <span className="sr-only">Open user menu</span>
               <div
-                className="h-10 w-10 rounded-xl bg-cover bg-no-repeat ring-2 ring-accentLight bg-center"
+                className={`h-10 w-10 rounded-xl bg-cover bg-no-repeat ring-2 ${
+                  selectedStatus === "active" ? "ring-green-400" : ""
+                } 
+                ${selectedStatus === "away" ? "ring-yellow-400" : ""} 
+                ${selectedStatus === "ignore" ? "ring-red-400" : ""} ${
+                  selectedStatus === "dnd" ? "ring-gray-400" : ""
+                }  bg-center`}
                 style={{
                   backgroundImage: `url(${profileimg})`,
                 }}
@@ -260,7 +261,6 @@ export default function _Header() {
                       active && "bg-bgDark text-textDark",
                       "bg-bgLight text-textLight focus:bg-bgDark focus:text-textDark  cursor-pointer rounded-2xl px-4 py-2 w-full"
                     )}
-                    onClick={() => navigate("/profile")}
                   >
                     Set Status
                     <Menu.Items>
@@ -271,7 +271,7 @@ export default function _Header() {
                               active && "bg-bgDark text-textDark",
                               "bg-bgLight text-textLight focus:bg-bgDark focus:text-textDark hover:bg-green-400 cursor-pointer rounded-2xl px-4 py-2 w-full"
                             )}
-                            onClick={() => navigate("/profile")}
+                            onClick={() => handleStatusChange("active")}
                           >
                             🟢 Active
                           </div>
@@ -284,7 +284,7 @@ export default function _Header() {
                               active && "bg-bgDark text-textDark",
                               "bg-bgLight text-textLight focus:bg-bgDark focus:text-textDark hover:bg-yellow-400 cursor-pointer rounded-2xl px-4 py-2 w-full"
                             )}
-                            onClick={() => navigate("/profile")}
+                            onClick={() => handleStatusChange("away")}
                           >
                             🟡 Away
                           </div>
@@ -297,7 +297,7 @@ export default function _Header() {
                               active && "bg-bgDark text-textDark",
                               "bg-bgLight text-textLight focus:bg-bgDark focus:text-textDark hover:bg-red-400 cursor-pointer rounded-2xl px-4 py-2 w-full"
                             )}
-                            onClick={() => navigate("/profile")}
+                            onClick={() => handleStatusChange("ignore")}
                           >
                             🔴 Ignore
                           </div>
@@ -311,7 +311,7 @@ export default function _Header() {
                               active && "text-md bg-bgDark text-textDark",
                               "bg-bgLight text-textLight focus:bg-bgDark focus:text-textDark hover:bg-gray-400 cursor-pointer rounded-2xl px-4 py-2 w-full"
                             )}
-                            onClick={() => navigate("/profile")}
+                            onClick={() => handleStatusChange("dnd")}
                           >
                             ⚫ DND
                           </div>
