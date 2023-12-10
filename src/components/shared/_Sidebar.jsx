@@ -23,11 +23,11 @@ const _Sidebar = () => {
           <SidebarkLink key={item.key} item={item} />
         ))}
       </div>
-      <div className="flex flex-col gap-2 p-2 w-11/12 ml-4 mb-4 flex-1 bg-bgLight rounded-xl overflow-auto">
-        <div className="p-4 rounded-xl bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
+      <div className="flex flex-col gap-2 p-2 w-11/12 ml-4 mb-4 flex-1 bg-bgLight rounded-3xl overflow-auto">
+        <div className="transition ease-in-out duration-200 p-4 rounded-full bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
           <div className="flex gap-4">
             <img
-              className="h-16 w-16 object-cover rounded-xl ring-2 ring-green-500"
+              className="h-16 w-16 object-cover rounded-full ring-2 ring-green-500"
               src={doc1}
               alt=""
             />
@@ -37,10 +37,10 @@ const _Sidebar = () => {
             </div>
           </div>
         </div>
-        <div className="p-4 rounded-xl bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
+        <div className="transition ease-in-out duration-200  p-4 rounded-full bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
           <div className="flex gap-4">
             <img
-              className="h-16 w-16 object-cover rounded-xl ring-2 ring-red-500"
+              className="h-16 w-16 object-cover rounded-full ring-2 ring-red-500"
               src={doc2}
               alt=""
             />
@@ -50,10 +50,10 @@ const _Sidebar = () => {
             </div>
           </div>
         </div>
-        <div className="p-4 rounded-xl bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
+        <div className="transition ease-in-out duration-200 p-4 rounded-full bg-bgDark h-24 w-full text-textDark cursor-pointer hover:bg-indigo-900">
           <div className="flex gap-4">
             <img
-              className="h-16 w-16 object-cover rounded-xl ring-2 ring-yellow-500"
+              className="h-16 w-16 object-cover rounded-full ring-2 ring-yellow-500"
               src={doc3}
               alt=""
             />

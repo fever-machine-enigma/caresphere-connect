@@ -60,7 +60,7 @@ const _Appointment = () => {
   );
 
   return (
-    <main className="flex gap-4 min-h-full">
+    <main className="flex flex-1 gap-4 h-full">
       <div className="flex flex-col gap-4 w-1/2">
         <header className="p-3 flex items-center justify-between rounded-full h-16 w-full bg-bgDark">
           <div className="flex items-center relative w-1/2">
@@ -82,15 +82,15 @@ const _Appointment = () => {
             </button>
           </div>
         </header>
-        <div className="p-6 rounded-3xl flex flex-col flex-1 h-full bg-bgDark">
+        <div className="p-4 rounded-3xl flex flex-col h-full bg-bgDark">
           <header className="font-Inter font-bold text-4xl text-textDark mb-4">
             Doctors
           </header>
-          <div className="p-4 gap-2 flex-1 flex bg-bgLight rounded-2xl h-full">
+          <div className="p-2 flex-wrap gap-2 flex bg-bgLight rounded-2xl h-[680px] overflow-auto scrollbarStyle">
             {filteredDoctors.map((user) => (
               <div
-                className={`hover:bg-accentDark transition ease-in-out duration-200 cursor-pointer flex  justify-center flex-row h-80 border-textLight rounded-2xl border-4 w-1/3 ${
-                  mappedDoctorList == user ? "bg-green-400" : ""
+                className={`p-2 gap-2 hover:bg-accentDark transition ease-in-out duration-200 cursor-pointer flex  justify-center flex-row h-72 border-textLight rounded-2xl border-2 w-[calc(33.33%-1rem)] ${
+                  mappedDoctorList === user ? "bg-green-400" : ""
                 }`}
                 key={user.id}
                 onClick={() => {
@@ -99,10 +99,10 @@ const _Appointment = () => {
               >
                 <div
                   id="cardContent"
-                  className="flex flex-col gap-2 justify-evenly items-center "
+                  className="flex flex-col justify-evenly items-center "
                 >
                   <img
-                    className="w-24 h-24 object-cover rounded-full"
+                    className="w-20 h-20 object-cover rounded-full"
                     src={user.profilePhoto}
                     alt=""
                   />
@@ -111,15 +111,15 @@ const _Appointment = () => {
                     className="flex flex-col items-center justify-center "
                   >
                     <div className="flex gap-1">
-                      <span className="font-Inter Tight text-2xl font-bold">
+                      <span className="font-Inter Tight text-xl font-bold">
                         {user.firstName}
                       </span>
-                      <span className="font-Inter Tight text-2xl font-bold">
+                      <span className="font-Inter Tight text-xl font-bold">
                         {user.lastName}
                       </span>
                     </div>
                     <p id="positionContainer">
-                      <span className="text-md font-Inter">
+                      <span className="text-sm font-Inter">
                         {user.userPosition}
                       </span>
                     </p>

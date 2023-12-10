@@ -74,7 +74,7 @@ const _Dashboard = () => {
               {isMarkedAllRead ? "No New Announcements" : "Mark all as Read"}
             </button>
           </div>
-          <div className="p-2 flex rounded-3xl flex-col gap-2 flex-1 bg-bgLight">
+          <div className="p-2 flex rounded-3xl flex-col gap-2 flex-1 bg-bgLight overflow-auto scrollbarStyle">
             {announceData.map((post) => (
               <div
                 key={post.id}
@@ -115,13 +115,13 @@ const _Dashboard = () => {
             </span>
             <Listbox value={selectedPresc} onChange={setSelectedPresc}>
               <div className="relative mt-1">
-                <Listbox.Button className="font-Inter relative cursor-default rounded-full bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-                  <span className="font-Inter block truncate">
+                <Listbox.Button className="font-InterTight relative cursor-default rounded-full bg-primaryDark border-2 border-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                  <span className="text-white font-Inter block truncate">
                     {selectedPresc.shortDesc}
                   </span>
                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                     <ChevronUpDownIcon
-                      className="h-5 w-5 text-red-400"
+                      className="h-5 w-5 text-white"
                       aria-hidden="true"
                     />
                   </span>
@@ -132,15 +132,15 @@ const _Dashboard = () => {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <Listbox.Options className="absolute right-0 mt-1 max-h-60 w-60 overflow-auto rounded-3xl bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+                  <Listbox.Options className="absolute right-0 mt-1 max-h-60 w-60 overflow-auto rounded-3xl bg-white py-1 text-base shadow-lg ring-1 ring-white/5 focus:outline-none sm:text-sm">
                     {uniquePrescriptionData.map((person, personIdx) => (
                       <Listbox.Option
                         key={personIdx}
                         className={({ active }) =>
-                          `relative cursor-default select-none py-2 pl-5 pr-4 ${
+                          `relative cursor-default select-none py-2 pl-5 ${
                             active
-                              ? "font-Inter bg-amber-100 text-amber-900"
-                              : "font-Inter text-gray-900"
+                              ? "font-Inter bg-bgDark text-textDark"
+                              : "font-Inter text-textLight"
                           }`
                         }
                         value={person}
@@ -155,7 +155,7 @@ const _Dashboard = () => {
                               {person.shortDesc}
                             </span>
                             {selectedPresc ? (
-                              <span className="absolute inset-y-0 left-4 flex items-center pl-3 text-amber-600">
+                              <span className="absolute inset-y-0 left-4 flex items-center pr-3 text-black">
                                 <CheckIcon
                                   className="h-5 w-5 text-amber-600"
                                   aria-hidden="true"
@@ -173,55 +173,53 @@ const _Dashboard = () => {
           </div>
           <div
             id="prescContainer"
-            className="p-2 rounded-3xl gap-2 flex flex-col flex-1 bg-bgLight overflow-auto"
+            className="scrollbarStyle p-2 rounded-3xl gap-2 flex flex-col flex-1 bg-bgLight overflow-auto"
           >
             {selectedPresc && (
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 rounded-full">
                 {prescriptionData
                   .filter(
                     (presc) => presc.shortDesc === selectedPresc.shortDesc
                   )
                   .map((filteredPresc) => (
                     <div
-                      className="font-Inter h-20 rounded-full w-full p-3 bg-bgDark flex flex-col justify-between items-start"
-                      key={filteredPresc.id}
+                      className="font-Inter h-40 rounded-full w-full flex flex-col gap-2"
+                      key={filteredPresc.prescription.id}
                     >
-                      <div className="flex gap-24 justify-between">
-                        <div className="flex gap-2 min-w-full">
-                          <img
-                            className="h-14 w-14 rounded-full"
-                            src={presc1}
-                            alt=""
-                          />
-                          <div className="flex-col gap-2" id="notifText">
+                      {filteredPresc.prescription.map((meds) => (
+                        <div
+                          className=" bg-bgDark hover:bg-primaryDark w-full flex flex-col justify-center rounded-full"
+                          key={meds.id}
+                        >
+                          <div className="flex flex-col px-10 py-4">
+                            <div className="rounded-full flex gap-2 text-white font-Inter font-bold text-xl">
+                              {meds.medName}
+                              {meds.medMorn && (
+                                <div className="flex items-center justify-center bg-sky-300 rounded-xl w-20 text-sm font-InterTight text-black">
+                                  <h1>Morning</h1>
+                                </div>
+                              )}
+                              {meds.medNoon && (
+                                <div className="flex items-center justify-center bg-yellow-300 rounded-xl w-20 text-sm font-InterTight text-black">
+                                  <h1>Noon</h1>
+                                </div>
+                              )}
+                              {meds.medNight && (
+                                <div className="flex items-center justify-center bg-indigo-300 rounded-xl w-20 text-sm font-InterTight text-black">
+                                  <h1>Night</h1>
+                                </div>
+                              )}
+                            </div>
                             <div>
-                              <h1 className="flex gap-2 text-white font-Inter font-bold text-xl">
-                                {filteredPresc.prescription.medName}
-                                {filteredPresc.prescription.medMorn && (
-                                  <div className="flex items-center justify-center bg-sky-300 rounded-xl w-20 text-sm font-InterTight text-black">
-                                    <h1>Morning</h1>
-                                  </div>
-                                )}
-                                {filteredPresc.prescription.medNoon && (
-                                  <div className="flex items-center justify-center bg-yellow-300 rounded-xl w-20 text-sm font-InterTight text-black">
-                                    <h1>Noon</h1>
-                                  </div>
-                                )}
-                                {filteredPresc.prescription.medNight && (
-                                  <div className="flex items-center justify-center bg-indigo-300 rounded-xl w-20 text-sm font-InterTight text-black">
-                                    <h1>Night</h1>
-                                  </div>
-                                )}
-                              </h1>
-                              {filteredPresc.prescription.longDesc && (
+                              {meds.longDesc && (
                                 <div className="text-white font-Inter text-md mt-1">
-                                  <h1>{filteredPresc.prescription.longDesc}</h1>
+                                  <h1>{meds.longDesc}</h1>
                                 </div>
                               )}
                             </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
                   ))}
               </div>
@@ -305,7 +303,5 @@ const EventDetails = ({ event, onClose }) => {
 {
   /*  */
 }
-
 {
-  /* ; */
 }
