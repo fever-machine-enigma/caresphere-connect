@@ -65,7 +65,7 @@ export default function _Prescription() {
             <div className="overflow-hidden">
               {filteredDoctors.map((user) => (
                 <div
-                  className="mt-2 transition ease-in duration-150 cursor-pointer rounded-full border-4 bg-blue-100 hover:bg-blue-300 h-1/5 p-8"
+                  className="flex flex-col mt-2 hover:border-2 hover:border-black transition ease-in duration-150 cursor-pointer rounded-full  bg-blue-100 hover:bg-blue-300 h-20 p-4"
                   key={user.id}
                   onClick={() => {
                     handleProfileView(user.prescription);
