@@ -1,4 +1,4 @@
-import { BiSearch, BiListUl, BiCalendar } from "react-icons/bi";
+import { BiSearch, BiListUl } from "react-icons/bi";
 import userData from "../../data/user/db.json";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
@@ -89,16 +89,16 @@ const _Appointment = () => {
           <div className="p-2 flex-wrap gap-2 flex bg-bgLight rounded-2xl h-[680px] overflow-auto scrollbarStyle">
             {filteredDoctors.map((user) => (
               <div
-                className={`p-2 gap-2 hover:bg-accentDark transition ease-in-out duration-200 cursor-pointer flex  justify-center flex-row h-72 border-textLight rounded-2xl border-2 w-[calc(33.33%-1rem)] ${
+                className={`p-2 gap-2 hover:bg-accentDark transition ease-in-out duration-200 cursor-pointer flex  justify-center flex-row h-72 border-textLight rounded-2xl border-2 w-[227px] ${
                   mappedDoctorList === user ? "bg-green-400" : ""
                 }`}
                 key={user.id}
-                onClick={() => {
-                  handleProfileView(user);
-                }}
               >
                 <div
                   id="cardContent"
+                  onClick={() => {
+                    handleProfileView(user);
+                  }}
                   className="flex flex-col justify-evenly items-center "
                 >
                   <img

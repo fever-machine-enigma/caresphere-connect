@@ -19,6 +19,7 @@ import _Settings from "./components/_Settings";
 import _Help from "./components/_Help";
 import _Profile from "./components/_Profile";
 import _Missing from "./components/_Missing";
+import _MedCart from "./components/MedCart";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="settings" element={<_Settings />} />
           <Route path="help" element={<_Help />} />
           <Route path="profile" element={<_Profile />} />
+          <Route path="medCart" element={<_MedCart />} />
         </Route>
         <Route path="login" element={<_Login />} />
         <Route path="register" element={<_Register />} />

@@ -101,7 +101,7 @@ export default function _Prescription() {
         <header className="font-Inter font-bold text-4xl text-textDark mb-2">
           Meds
         </header>
-        <div className="h-[765px] bg-bgLight rounded-2xl overflow-auto scrollbarStyle">
+        <div className="h-[740px] bg-bgLight rounded-2xl overflow-auto scrollbarStyle">
           {selectedCard && (
             <section className=" flex flex-col gap-2 items-center p-2">
               {selectedCard.map((meds) => (

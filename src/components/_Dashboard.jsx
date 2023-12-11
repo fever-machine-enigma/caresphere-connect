@@ -277,7 +277,7 @@ const EventDetails = ({ event, onClose }) => {
               {event.title}
             </h1>
             <h1 className="font-Inter text-2xl">
-              {event.start.toLocaleString("en-US")}
+              Time: {event.start.toLocaleString("en-US")}
             </h1>
           </div>
         </div>
