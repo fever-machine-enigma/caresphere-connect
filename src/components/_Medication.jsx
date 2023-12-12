@@ -101,7 +101,7 @@ export default function _Medication() {
         ))}
         {selectedCard && (
           <Dialog open={isOpen} onClose={() => closeModal()}>
-            <div className="fixed inset-0 flex w-screen items-center justify-center p-4 bg-gray-700/80">
+            <div className="fixed inset-0 flex w-screen items-center justify-center  bg-gray-700/80">
               <Dialog.Panel className="flex flex-col gap-10 p-8 w-full max-w-3xl h-full max-h-2xl rounded-xl bg-white">
                 <Dialog.Title>
                   <h1 className="text-4xl font-InterTight font-bold">
@@ -116,9 +116,9 @@ export default function _Medication() {
                       alt=""
                     />
                   </div>
-                  <div className="w-1/2 flex flex-col items-center justify-center gap-4">
+                  <div className="w-1/2 flex flex-col items-center justify-between gap-4">
                     <div>
-                      <h1 className="font-Inter font-bold text-4xl">
+                      <h1 className="font-Inter font-bold text-5xl">
                         {selectedCard.medName}
                       </h1>
                     </div>
@@ -133,9 +133,49 @@ export default function _Medication() {
                         {selectedCard.medType}
                       </h1>
                     </div>
+                    <div className="flex flex-col justify-center items-center">
+                      <h1 className="font-Inter font-bold text-5xl">
+                        ${selectedCard.price}
+                      </h1>
+                      <p className="font-Inter text-2xl">
+                        {selectedCard.medType == "Capsule" && " Per capsule"}
+                        {selectedCard.medType == "Tablet" && " Per tablet"}
+                        {selectedCard.medType == "Syrup" && "Per bottle"}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div></div>
+                <div className="">
+                  <div>
+                    <h1 className="font-Inter font-bold text-2xl">Dosage:</h1>
+                  </div>
+                  <div>
+                    <p className="font-Inter text-lg">{selectedCard.dosage}</p>
+                  </div>
+                </div>
+                <div className="">
+                  <div>
+                    <h1 className="font-Inter font-bold text-2xl">
+                      Instructions:
+                    </h1>
+                  </div>
+                  <div>
+                    <p className="font-Inter text-lg">
+                      {selectedCard.instructions}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-1">
+                  <input
+                    type="number"
+                    className="text-center text-white text-2xl font-Inter focus:outline-none bg-accentLight p-4 rounded-full placeholder:text-white"
+                    id=""
+                    placeholder="Select Quantity"
+                  />
+                  <button className="flex-1 transition ease-in-out duration-150 grid place-content-center font-Inter font-bold text-2xl text-white bg-primaryLight hover:bg-yellow-500 hover:text-black rounded-full p-3">
+                    Add to Cart
+                  </button>
+                </div>
               </Dialog.Panel>
             </div>
           </Dialog>

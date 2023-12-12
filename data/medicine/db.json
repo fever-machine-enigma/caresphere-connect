@@ -4,6 +4,9 @@
     "medName": "Medicine 1",
     "image": "../../public/placeholder.png",
     "medType": "Syrup",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 3.99
   },
   {
@@ -11,6 +14,9 @@
     "medName": "Medicine 2",
     "image": "../../public/placeholder.png",
     "medType": "Tablet",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 4.99
   },
   {
@@ -18,6 +24,9 @@
     "medName": "Medicine 3",
     "image": "../../public/placeholder.png",
     "medType": "Capsule",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 11.99
   },
   {
@@ -25,6 +34,9 @@
     "medName": "Medicine 4",
     "image": "../../public/placeholder.png",
     "medType": "Tablet",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   },
   {
@@ -32,6 +44,9 @@
     "medName": "Medicine 5",
     "image": "../../public/placeholder.png",
     "medType": "Syrup",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   },
   {
@@ -39,6 +54,9 @@
     "medName": "Medicine 6",
     "image": "../../public/placeholder.png",
     "medType": "Capsule",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   },
   {
@@ -46,6 +64,9 @@
     "medName": "Medicine 7",
     "image": "../../public/placeholder.png",
     "medType": "Tablet",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   },
   {
@@ -53,6 +74,9 @@
     "medName": "Medicine 8",
     "image": "../../public/placeholder.png",
     "medType": "Syrup",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   },
   {
@@ -60,6 +84,9 @@
     "medName": "Medicine 9",
     "image": "../../public/placeholder.png",
     "medType": "Tablet",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   },
   {
@@ -67,6 +94,9 @@
     "medName": "Medicine 10",
     "image": "../../public/placeholder.png",
     "medType": "Syrup",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   },
   {
@@ -74,6 +104,9 @@
     "medName": "Medicine 11",
     "image": "../../public/placeholder.png",
     "medType": "Syrup",
+    "stock": 10,
+    "dosage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
+    "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum, odio ac cursus pulvinar, elit arcu vulputate nisi, vel ornare nisl est non ligula. Mauris euismod metus nec urna sodales, eu rhoncus justo finibus. Integer eleifend libero vel libero cursus, vitae suscipit felis lacinia.",
     "price": 5.99
   }
 ]
